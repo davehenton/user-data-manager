@@ -26,7 +26,7 @@
 		<javax.servlet.version>4.0.0</javax.servlet.version>
 		<assertj.version>3.9.1</assertj.version>
 		<mockito.version>2.15.0</mockito.version>
-		<spotify.docker.plugin.version>0.4.13</spotify.docker.plugin.version>
+		<spotify.docker.plugin.version>1.0.0</spotify.docker.plugin.version>
 	</properties>
 	<build>
 		<defaultGoal>package</defaultGoal>
@@ -41,7 +41,7 @@
 				<version>${spotify.docker.plugin.version}</version>
 				<configuration>
 					<dockerDirectory>${project.basedir}</dockerDirectory>
-					<imageName>docker.io/amertkara/user-data-manager</imageName>
+					<imageName>quay.io/amertkara/user-data-manager</imageName>
 					<imageTags>
 						<imageTag>${project.version}</imageTag>
 					</imageTags>

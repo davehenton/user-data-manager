@@ -1,0 +1,21 @@
+# Config file for automatic testing at travis-ci.org
+
+language: java
+
+jdk:
+  - oraclejdk8
+
+cache:
+  directories:
+  - $HOME/.m2
+
+services:
+  - docker
+
+script:
+   - mvn clean verify -B
+
+after_success:
+  - mvn clean package docker:build -DskipTests=true &&
+    docker login -u="$QUAY_USERNAME" -p="$QUAY_PASSWORD" quay.io &&
+    docker push quay.io/amertkara/user-data-manager
