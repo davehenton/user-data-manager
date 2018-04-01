@@ -1,6 +1,7 @@
 # Config file for automatic testing at travis-ci.org
-
-language: java
+language:
+  - java
+  - ruby
 
 jdk:
   - oraclejdk8
@@ -12,8 +13,21 @@ cache:
 services:
   - docker
 
+rvm:
+  - 2.2.0
+
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+
 script:
    - mvn clean verify -B
+
+after_script:
+  - cp target/site/jacoco/jacoco.xml src/main/java/jacoco.xml
+  - cd src/main/java/
+  - ../../../cc-test-reporter after-build -t jacoco --exit-code $TRAVIS_TEST_RESULT
 
 after_success:
   - mvn clean package docker:build &&
