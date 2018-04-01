@@ -2,7 +2,7 @@ FROM openjdk:8u121-jdk-alpine
 
 MAINTAINER Mert Kara <amertkara@gmail.com>
 
-ENV JAR_NAME=application-1.0-SNAPSHOT.jar
+ENV JAR_NAME=${JarName}
 ENV JAVA_OPTS="-Xms128M -Xmx128M -XX:MaxMetaspaceSize=64M"
 
 COPY application/src/main/bash/entrypoint.sh /entrypoint.sh

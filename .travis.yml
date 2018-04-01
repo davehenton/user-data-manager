@@ -16,6 +16,6 @@ script:
    - mvn clean verify -B
 
 after_success:
-  - mvn clean package docker:build -DskipTests=true &&
+  - mvn clean package docker:build &&
     docker login -u="$QUAY_USERNAME" -p="$QUAY_PASSWORD" quay.io &&
     docker push quay.io/amertkara/user-data-manager

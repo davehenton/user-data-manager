@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.amertkara.udm</groupId>
 	<artifactId>user-data-manager</artifactId>
-	<version>1.0-SNAPSHOT</version>
+	<version>1.0.1-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	<description>The parent pom</description>
 	<properties>
@@ -26,7 +26,7 @@
 		<javax.servlet.version>4.0.0</javax.servlet.version>
 		<assertj.version>3.9.1</assertj.version>
 		<mockito.version>2.15.0</mockito.version>
-		<spotify.docker.plugin.version>1.0.0</spotify.docker.plugin.version>
+		<spotify.docker.plugin.version>0.4.14</spotify.docker.plugin.version>
 	</properties>
 	<build>
 		<defaultGoal>package</defaultGoal>
@@ -40,6 +40,9 @@
 				<artifactId>docker-maven-plugin</artifactId>
 				<version>${spotify.docker.plugin.version}</version>
 				<configuration>
+					<buildArgs>
+						<JarName>application-${project.version}.jar</JarName>
+					</buildArgs>
 					<dockerDirectory>${project.basedir}</dockerDirectory>
 					<imageName>quay.io/amertkara/user-data-manager</imageName>
 					<imageTags>
