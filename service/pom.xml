@@ -88,6 +88,14 @@
 					<skipDockerBuild>true</skipDockerBuild>
 				</configuration>
 			</plugin>
+			<plugin>
+				<groupId>org.jacoco</groupId>
+				<artifactId>jacoco-maven-plugin</artifactId>
+				<version>${jacoco.version}</version>
+				<configuration>
+					<destFile>${project.basedir}/../target/jacoco-it.exec</destFile>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>

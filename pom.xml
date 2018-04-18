@@ -28,6 +28,8 @@
 		<mockito.version>2.15.0</mockito.version>
 		<spotify.docker.plugin.version>0.4.14</spotify.docker.plugin.version>
 		<jacoco.version>0.8.0</jacoco.version>
+		<sonar.language>java</sonar.language>
+		<sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
 	</properties>
 	<build>
 		<defaultGoal>package</defaultGoal>

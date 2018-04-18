@@ -1,7 +1,5 @@
 # Config file for automatic testing at travis-ci.org
-language:
-  - java
-  - ruby
+language: java
 
 jdk:
   - oraclejdk8
@@ -12,9 +10,6 @@ cache:
 
 services:
   - docker
-
-rvm:
-  - 2.2.0
 
 before_script:
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
