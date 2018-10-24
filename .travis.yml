@@ -1,4 +1,8 @@
 # Config file for automatic testing at travis-ci.org
+env:
+  global:
+    - CC_TEST_REPORTER_ID=f59923a0f8f0e5bbfe97d8155ddf1a5889820958591f1cb98e1cc4c31168cc8a
+
 language:
   - java
   - ruby
